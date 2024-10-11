@@ -1,0 +1,65 @@
+@font-face {
+    font-family: 'KimjungchulGothic-Bold';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/KimjungchulGothic-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+  font-family: 'SungDongGothic';
+  font-style: normal;
+  font-weight: 700;
+  src: url('//fastly.jsdelivr.net/korean-webfonts/1/orgs/govs/sdgu/SungDongGothic/SungDongGothicB.woff2') format('woff2'), url('//fastly.jsdelivr.net/korean-webfonts/1/orgs/govs/sdgu/SungDongGothic/SungDongGothicB.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'SungDongGothic';
+  font-style: normal;
+  font-weight: 800;
+  src: url('//fastly.jsdelivr.net/korean-webfonts/1/orgs/govs/sdgu/SungDongGothic/SungDongGothicEB.woff2') format('woff2'), url('//fastly.jsdelivr.net/korean-webfonts/1/orgs/govs/sdgu/SungDongGothic/SungDongGothicEB.woff') format('woff');
+}
+
+.sungdonggothic * {
+ font-family: 'SungDongGothic', sans-serif;
+}
+@font-face {
+     font-family: 'locus_sangsang';
+     src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/locus_sangsang.woff') format('woff');
+     font-weight: normal;
+     font-style: normal;
+}
+@font-face {
+    font-family: 'NEXON Lv2 Gothic';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv2 Gothic.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.wrap {display: flex;justify-content: space-around;}   
+.tarea {resize: none;width: 500px;height: 100px;padding: 10px;margin-right: 10px;}
+.line_area {display: flex;}
+.btns {display: inline-flex;justify-content: center;align-items: center;padding: 10px 40px;}
+.btn_list {margin-top: 20px;}
+.btn_list > .btns {width: 32%;}
+
+.round {width: 378px;height: 378px;border: 3px solid #000;border-radius: 50%;display: flex; justify-content: center;align-items: center;margin: 0 auto;}
+.round.off {border: none;}
+.round.top {align-items: flex-start;}
+.round.bottom {align-items: flex-end;}
+.round.left {justify-content: left;}
+.round.right {justify-content: right;}
+.text_box {text-align: center;}
+.text_box p {text-align: center;color: #000;font-size: 30px;font-family: "NEXON Lv2 Gothic";margin: 0;font-weight: 700;}
+.round.top .text_box {margin-top: 20px;}
+.round.bottom .text_box {margin-bottom: 20px;}
+.round.right .text_box {margin-right: 20px;}
+.round.left .text_box {margin-left: 20px;}
+.radio_list {display: flex;justify-content: space-evenly;align-items: center;margin-top: 20px;}
+
+@media (max-width: 767px) {
+   .wrap {flex-direction: column;}
+   h1 {font-size: 20px;}
+   h2 {font-size: 15px;}
+   .tarea {height: 50px;}
+   .btns {font-size: 13px;padding: 10px 30px;}
+   .round {margin: 20px auto 0 auto;}
+}
