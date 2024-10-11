@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<script
+  src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+  crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/gh/peterhry/CircleType@2.3.1/dist/circletype.min.js"></script>
+<link rel="stylesheet" href="./css.css" type="text/css"/>
+<title>케이크글씨 제작</title>
+</head>
+<body>
+<style type="text/css">
+@font-face {
+    font-family: 'KimjungchulGothic-Bold';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/KimjungchulGothic-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+  font-family: 'SungDongGothic';
+  font-style: normal;
+  font-weight: 700;
+  src: url('//fastly.jsdelivr.net/korean-webfonts/1/orgs/govs/sdgu/SungDongGothic/SungDongGothicB.woff2') format('woff2'), url('//fastly.jsdelivr.net/korean-webfonts/1/orgs/govs/sdgu/SungDongGothic/SungDongGothicB.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'SungDongGothic';
+  font-style: normal;
+  font-weight: 800;
+  src: url('//fastly.jsdelivr.net/korean-webfonts/1/orgs/govs/sdgu/SungDongGothic/SungDongGothicEB.woff2') format('woff2'), url('//fastly.jsdelivr.net/korean-webfonts/1/orgs/govs/sdgu/SungDongGothic/SungDongGothicEB.woff') format('woff');
+}
+
+.sungdonggothic * {
+ font-family: 'SungDongGothic', sans-serif;
+}
+@font-face {
+     font-family: 'locus_sangsang';
+     src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/locus_sangsang.woff') format('woff');
+     font-weight: normal;
+     font-style: normal;
+}
+@font-face {
+    font-family: 'NEXON Lv2 Gothic';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv2 Gothic.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.wrap {display: flex;justify-content: space-around;}   
+.tarea {resize: none;width: 500px;height: 100px;padding: 10px;margin-right: 10px;}
+.line_area {display: flex;}
+.btns {display: inline-flex;justify-content: center;align-items: center;padding: 10px 40px;}
+.btn_list {margin-top: 20px;}
+.btn_list > .btns {width: 32%;}
+
+.round {width: 378px;height: 378px;border: 3px solid #000;border-radius: 50%;display: flex; justify-content: center;align-items: center;margin: 0 auto;}
+.round.off {border: none;}
+.round.top {align-items: flex-start;}
+.round.bottom {align-items: flex-end;}
+.round.left {justify-content: left;}
+.round.right {justify-content: right;}
+.text_box {text-align: center;}
+.text_box p {text-align: center;color: #000;font-size: 30px;font-family: "NEXON Lv2 Gothic";margin: 0;font-weight: 700;}
+.round.top .text_box {margin-top: 20px;}
+.round.bottom .text_box {margin-bottom: 20px;}
+.round.right .text_box {margin-right: 20px;}
+.round.left .text_box {margin-left: 20px;}
+.radio_list {display: flex;justify-content: space-evenly;align-items: center;margin-top: 20px;}
+
+@media (max-width: 767px) {
+   .wrap {flex-direction: column;}
+   h1 {font-size: 20px;}
+   h2 {font-size: 15px;}
+   .tarea {height: 50px;}
+   .btns {font-size: 13px;padding: 10px 30px;}
+   .round {margin: 20px auto 0 auto;}
+}
+</style>
+   <h1 style="text-align: center;">레터링 글씨 제작하기!</h1>
+   <div class="wrap">
+      <div class="left">
+         <h2>글씨 작성</h2>
+         <div class="line_area">
+            <textarea name="cake_letter" id="cake_letter" class="tarea"></textarea>
+            <button type="button" class="btns" id="t_input">입력</button>
+         </div>
+         <h2>글씨 위치</h2>
+         <div class="btn_list">
+            <button type="button" class="btns" id="t_top">위</button>
+            <button type="button" class="btns" id="t_mid">중간</button>
+            <button type="button" class="btns" id="t_bottom">아래</button>
+         </div>
+         <div class="btn_list">
+            <button type="button" class="btns" id="t_left">왼쪽</button>
+            <button type="button" class="btns" id="t_right">오른쪽</button>
+         </div>
+         <h2>글씨 둥글게</h2>
+         <div class="btn_list">
+            <button type="button" class="btns" id="t_over">위로 둥글게</button>
+            <button type="button" class="btns" id="t_under">아래로 둥글게</button>
+            <button type="button" class="btns" id="t_reset">초기화</button>
+         </div>
+         <h2>둥글기 조절</h2>
+         <div class="btn_list">
+            <button type="button" class="btns" id="radius_up">+</button>
+            <button type="button" class="btns" id="radius_down">-</button>
+         </div>
+         <h2>글씨 크기</h2>
+         <div>현재 크기 : <span class="textsize">22.5pt</span></div>
+         <div class="btn_list">
+            <button type="button" class="btns" id="t_up" onclick="t_size('up');">+</button>
+            <button type="button" class="btns" id="t_down" onclick="t_size('down');">-</button>
+         </div>
+      </div>
+      <div class="right">
+         <div class="round">
+            <div class="text_box">
+               <p id="texts">생일축하합니다.</p>
+            </div>
+         </div>
+         <div style="text-align: center;margin-top: 30px;"><button type="button" class="btns" id="border_toggle">테두리 온오프</button></div>
+         <div class="radio_list">
+            <div class="radio_item">
+               <input type="radio" value="1" name="cake" id="cake1" checked>
+               <label for="cake1">도시락</label>
+            </div>
+            <div class="radio_item">
+               <input type="radio" value="2" name="cake" id="cake2">
+               <label for="cake2">미니홀</label>
+            </div>
+            <div class="radio_item">
+               <input type="radio" value="3" name="cake" id="cake3">
+               <label for="cake3">1호</label>
+            </div>
+            <div class="radio_item">
+               <input type="radio" value="4" name="cake" id="cake4">
+               <label for="cake4">2호</label>
+            </div>
+         </div>
+      </div>
+   </div>
+   <script type="text/javascript">
+      var circleType = null;
+      var currentRadius = 250;
+      function updateText() {
+          var tt = $("#cake_letter").val().replace(/\n/g, "<br>");
+          if (tt != ''){
+             $("#texts").html(tt);
+          }
+      }
+
+      function setPosition(position) {
+          $(".round").removeClass().addClass("round " + position);
+      }
+
+      function applyCircle(radius, direction = 1) {
+          if (circleType) circleType.destroy(); // 기존 CircleType 제거
+          updateText();
+          circleType = new CircleType(document.getElementById('texts'));
+          circleType.radius(radius).dir(direction);
+      }
+
+      function resetCircle() {
+          if (circleType) {
+              circleType.destroy(); // CircleType 효과 제거
+              circleType = null;
+          }
+      }
+      
+      function t_size(size){
+         var textElement = document.getElementById('texts');
+         var currentSize = parseInt(window.getComputedStyle(textElement).fontSize);      
+         
+         if (size === 'up') {
+            currentSize = Math.min(currentSize + 1, 60);
+         } else if (size === 'down') {
+            currentSize = Math.max(currentSize - 1, 12);
+         }
+
+         textElement.style.fontSize = currentSize + 'px'; // Update font size
+         var currentSizePt = (currentSize * 72 / 96).toFixed(3);
+         $(".textsize").text(currentSizePt+'pt');
+      }
+
+      function adjustRadius(value) {
+          currentRadius = Math.max(100, Math.min(currentRadius + value, 500)); // Limit between 100 and 500
+          applyCircle(currentRadius, currentDirection); // Apply circle with current direction
+      }
+
+      $(document).ready(function(){    
+         $("#t_input, #t_top, #t_mid, #t_bottom, #t_left, #t_right, #t_over, #t_under, #t_reset, #border_toggle, #radius_up, #radius_down").on("click", function(event) {
+            event.preventDefault();  // Prevent default button action
+         });
+         $("#t_input").on("click", updateText);
+
+         $("#t_top").on("click", function() {
+             setPosition("top");
+         });
+         $("#t_mid").on("click", function() {
+             setPosition(""); // 기본 위치로 설정
+         });
+         $("#t_bottom").on("click", function() {
+             setPosition("bottom");
+         });
+
+         $("#t_left").on("click", function() {
+             setPosition("left");
+         });
+
+         $("#t_right").on("click", function() {
+             setPosition("right");
+         });
+
+         $("#t_over").on("click", function() {
+             //applyCircle(250,1);
+             currentDirection = 1; // Upwards
+             applyCircle(currentRadius, currentDirection);
+         });
+
+         $("#t_under").on("click", function() {
+             //applyCircle(250, -1);
+             currentDirection = -1; // Downwards
+             applyCircle(currentRadius, currentDirection);
+         });
+
+         $("#t_reset").on("click", resetCircle);
+
+         $("#border_toggle").on("click",function(){
+            $(".round").toggleClass("off");
+         });
+
+         $("#radius_up").on("click", function() {
+             adjustRadius(10); // Increase radius by 10
+         });
+
+         $("#radius_down").on("click", function() {
+             adjustRadius(-10); // Decrease radius by 10
+         });
+
+         $('input[name="cake"]').change(function() {
+            // 선택된 라디오 버튼의 값을 가져옴
+            var selectedValue = $('input[name="cake"]:checked').val();
+
+            // 선택된 값에 따라 다른 동작 실행
+            if (selectedValue === '1') {
+               $(".round").css({"width" : "378px","height" : "378px"});
+            } else if (selectedValue === '2') {
+               $(".round").css({"width" : "453px","height" : "453px"});               
+            } else if (selectedValue === '3') {
+               $(".round").css({"width" : "567px","height" : "567px"});               
+            } else if (selectedValue === '4') {
+               $(".round").css({"width" : "680px","height" : "680px"});               
+            }
+         });
+      });
+   </script>
+</body>
+</html>
