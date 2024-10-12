@@ -47,7 +47,7 @@ $(function(){
       }
 
       $(document).ready(function(){    
-         $("#t_input, #t_top, #t_mid, #t_bottom, #t_left, #t_right, #t_over, #t_under, #t_reset, #border_toggle, #radius_up, #radius_down, #t_up, #t_down").on("click", function(event) {
+         $("#t_input, #t_top, #t_mid, #t_bottom, #t_left, #t_right, #t_over, #t_under, #t_reset, #border_toggle, #radius_up, #radius_down, #t_up, #t_down, #t_writing").on("click", function(event) {
             event.preventDefault();  // Prevent default button action
          });
          $("#t_input").on("click", updateText);
@@ -116,5 +116,8 @@ $(function(){
                $(".round").css({"width" : "680px","height" : "680px"});               
             }
          });
+      });
+      $("#t_writing").on("click",function(){
+         $("#texts").toggleClass("handwriting")
       });
 });
