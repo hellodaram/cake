@@ -49,6 +49,7 @@
 .round.right {justify-content: right;}
 .text_box {text-align: center;}
 .text_box p {text-align: center;color: #000;font-size: 30px;font-family: "NEXON Lv2 Gothic";margin: 0;font-weight: 700;}
+#texts.handwriting {font-family: "Satisfy";}
 .round.top .text_box {margin-top: 20px;}
 .round.bottom .text_box {margin-bottom: 20px;}
 .round.right .text_box {margin-right: 20px;}
